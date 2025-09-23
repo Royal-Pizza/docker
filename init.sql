@@ -71,22 +71,19 @@ CREATE TABLE contain (
 -- Insertion client admin
 -- ==========================
 INSERT INTO customer (first_name, last_name, email_address, password, wallet, is_admin)
-VALUES ('Hassen', 'GHAZEL', 'hassen0805@gmail.com', '123456789', 365, TRUE)
-ON CONFLICT (email_address) DO NOTHING;
+VALUES ('Hassen', 'GHAZEL', 'hassen0805@gmail.com', '123456789', 365, TRUE);
 
 -- ==========================
 -- Insertion ingrédients neutres
 -- ==========================
 INSERT INTO ingredient (name_ingredient) VALUES
-('Tomato'), ('Cheese'), ('Olives')
-ON CONFLICT (name_ingredient) DO NOTHING;
+('Tomato'), ('Cheese'), ('Olives');
 
 -- ==========================
 -- Insertion pizza connue : Margherita
 -- ==========================
 INSERT INTO pizza (name_pizza, price_pizza) VALUES
-('Margherita', 8.50)
-ON CONFLICT (name_pizza) DO NOTHING;
+('Margherita', 8.50);
 
 -- ==========================
 -- Lier pizza aux ingrédients
@@ -94,8 +91,7 @@ ON CONFLICT (name_pizza) DO NOTHING;
 INSERT INTO contain (id_pizza, id_ingredient)
 SELECT p.id_pizza, i.id_ingredient
 FROM pizza p, ingredient i
-WHERE p.name_pizza = 'Margherita'
-ON CONFLICT DO NOTHING;
+WHERE p.name_pizza = 'Margherita';
 
 -- ==========================
 -- Insertion tailles
@@ -103,5 +99,4 @@ ON CONFLICT DO NOTHING;
 INSERT INTO size (name_size, coeff) VALUES
 ('Small', 0.6667),
 ('Medium', 1.0),
-('Large', 1.3333)
-ON CONFLICT (name_size) DO NOTHING;
+('Large', 1.3333);
