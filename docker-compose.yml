@@ -1,36 +1,29 @@
 services:
-  db:
+  postgres-db:
     image: postgres:15
-    container_name: royal-pizza-db
-    env_file:
-      - .env
-    ports:
-      - "${POSTGRES_PORT}:5432"
-    volumes:
-      - postgres-data:/var/lib/postgresql/data   # volume Docker nommé pour persistance
-      - ./init.sql:/docker-entrypoint-initdb.d/init.sql   # script d'initialisation
-    restart: unless-stopped
-
-  pgadmin:
-    image: dpage/pgadmin4
-    container_name: royal-pizza-pgadmin
+    container_name: royal_postgres
     environment:
-      PGADMIN_DEFAULT_EMAIL: admin@royalpizza.com
-      PGADMIN_DEFAULT_PASSWORD: admin
+      POSTGRES_DB: royal_pizza
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: secret
     ports:
-      - "8080:80"
-    depends_on:
-      - db
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
 
-  # backend:
-  #   build: ../backend-pizza
-  #   container_name: royal-pizza-backend
+
+  # backend-app:
+  #   build: ./backend
+  #   container_name: royal_backend
   #   ports:
-  #     - "8081:8080"
-  #   env_file:
-  #     - .env
+  #     - "8081:8081"
+  #   environment:
+  #     SPRING_DATASOURCE_URL: jdbc:postgresql://postgres-db:5432/royal_pizza
+  #     SPRING_DATASOURCE_USERNAME: postgres
+  #     SPRING_DATASOURCE_PASSWORD: secret
   #   depends_on:
-  #     - db
+  #     - postgres-db
 
 volumes:
-  postgres-data:   
+  postgres_data:
