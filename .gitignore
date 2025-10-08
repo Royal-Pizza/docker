@@ -1,0 +1,6 @@
+.idea/.gitignore
+.idea/data_source_mapping.xml
+.idea/dataSources.xml
+.idea/vcs.xml
+image/margherita.jpg
+ docker volume inspect postgres-data
