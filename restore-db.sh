@@ -1,4 +1,5 @@
-#!/bin/bash
+#!/bin/bash\r
+
 set -e
 
 # Nom du conteneur PostgreSQL
