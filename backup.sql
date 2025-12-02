@@ -2,7 +2,7 @@
 -- PostgreSQL database dump
 --
 
-\restrict PM4jRXhjiK5GwyKco5PTwil9fsx1nguH72aPH0N8CnKI1qfzYqxhHKVPRby3S3q
+\restrict AlLwKIlzaVi01j9DPFNgQbCFqrKqD6sUkcLZXdF6hc5xUQBcNHsGdzB6mz2d9at
 
 -- Dumped from database version 15.14 (Debian 15.14-1.pgdg13+1)
 -- Dumped by pg_dump version 15.14 (Debian 15.14-1.pgdg13+1)
@@ -621,5 +621,5 @@ ALTER TABLE ONLY public.price
 -- PostgreSQL database dump complete
 --
 
-\unrestrict PM4jRXhjiK5GwyKco5PTwil9fsx1nguH72aPH0N8CnKI1qfzYqxhHKVPRby3S3q
+\unrestrict AlLwKIlzaVi01j9DPFNgQbCFqrKqD6sUkcLZXdF6hc5xUQBcNHsGdzB6mz2d9at
 
