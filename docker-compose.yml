@@ -12,10 +12,11 @@ services:
       - "5432:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
+      - ./backup.sql:/docker-entrypoint-initdb.d/backup.sql
 
 
   backend-app:
-    build: ../backend-pizza
+    build: ../backend
     container_name: royal_backend
     ports:
       - "8081:8081"
